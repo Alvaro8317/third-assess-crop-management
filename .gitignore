@@ -423,6 +423,7 @@ pyrightconfig.json
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+**/.infracost/*
 
 # .tfstate files
 *.tfstate
