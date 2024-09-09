@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package cropservice;
+
+message Crop {
+  string id = 1;
+  string type = 2;
+  string variety = 3;
+  string location = 4;
+  string size = 5;
+  string planting_date = 6;
+  string harvest_date = 7;
+}
+
+message CreateCropRequest {
+  Crop crop = 1;
+}
+
+message GetCropRequest {
+  string id = 1;
+}
+
+message UpdateCropRequest {
+  Crop crop = 1;
+}
+
+message DeleteCropRequest {
+  string id = 1;
+}
+
+message CropResponse {
+  Crop crop = 1;
+}
+
+message Empty {}
+
+service CropService {
+  rpc CreateCrop(CreateCropRequest) returns (CropResponse);
+  rpc GetCrop(GetCropRequest) returns (CropResponse);
+  rpc UpdateCrop(UpdateCropRequest) returns (CropResponse);
+  rpc DeleteCrop(DeleteCropRequest) returns (Empty);
+}
