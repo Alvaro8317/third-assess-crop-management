@@ -1,4 +1,3 @@
-# domain/repositories/crop_repository.py
 from abc import ABC, abstractmethod
 from app.domain.entities import Crop
 
@@ -9,13 +8,16 @@ class CropRepository(ABC):
         pass
 
     @abstractmethod
-    def find_by_id(self, crop_id: int) -> Crop:
+    def find_by_id(self, crop_id: str, user_id: int) -> Crop:
         pass
 
     @abstractmethod
-    def list_all(self) -> list[Crop]:
+    def list_all(self, user_id) -> list[Crop]:
         pass
 
     @abstractmethod
-    def delete(self, crop_id: int) -> None:
+    def delete(self, crop_id: str, user_id: int) -> bool:
+        pass
+
+    def harvest_crop(self, crop, planting_date: str, harvest_date: str) -> Crop:
         pass
