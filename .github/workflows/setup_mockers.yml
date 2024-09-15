@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'src/IoT/crops-mock'
+      - 'src/IoT/crops-mock/**'
 env:
   AZURE_FUNCTIONAPP_NAME: 'pragma-third-assessment-mocker-crop-77vm'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: './src/IoT/crops-mock'
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: ${{env.PYTHON_VERSION}}
 
       - name: Install dependencies
         working-directory: src/IoT/crops-mock
