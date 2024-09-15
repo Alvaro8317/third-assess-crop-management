@@ -1,17 +1,7 @@
 module "tags" {
   source = "./modules/tags"
   additional_tags = {
-    Service = "AppService"
   }
-}
-
-resource "azurerm_service_plan" "appserviceplan" {
-  name                = "${local.prefix}plan-service-${random_string.random.result}"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  os_type             = "Linux"
-  sku_name            = "B1"
-  tags                = module.tags.tags
 }
 
 resource "azurerm_linux_web_app" "webapp" {

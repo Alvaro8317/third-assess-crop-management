@@ -38,5 +38,5 @@ class CropResponseModel(BaseModel):
     user_id: int
     insert_date: str
 
-    class Config:
+    class ConfigDict:
         from_attributes = True

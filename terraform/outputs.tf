@@ -7,6 +7,10 @@ output "webapp-outputs-app-settings" {
 }
 
 output "webapp-outputs-site-config" {
-  value = azurerm_linux_web_app.webapp.site_config
+  value     = azurerm_linux_web_app.webapp.site_config
   sensitive = true
+}
+
+output "ec2-public-ip" {
+  value = module.aws.public_ip_instance
 }

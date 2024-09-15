@@ -8,6 +8,10 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "4.1.0"
     }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.67.0"
+    }
   }
   required_version = ">= 0.14.9"
 }
@@ -17,5 +21,12 @@ provider "azurerm" {
     resource_group {
       prevent_deletion_if_contains_resources = false
     }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+  default_tags {
+    tags = var.tags_aws
   }
 }
