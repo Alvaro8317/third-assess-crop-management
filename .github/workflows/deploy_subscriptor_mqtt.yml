@@ -32,6 +32,9 @@ jobs:
           echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/private_key_ec2
           chmod 600 ~/.ssh/private_key_ec2
           ls -al ~/.ssh/
+      - name: Debug SSH key
+        run: |
+          cat ~/.ssh/private_key_ec2
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.1
         with:
