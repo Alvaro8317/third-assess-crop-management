@@ -55,9 +55,10 @@ def http_trigger1_test(req: func.HttpRequest) -> func.HttpResponse:
     )
 
 
-@app.timer_trigger(schedule="0 */15 * * * *", arg_name="timer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */5 * * * *", arg_name="timer", run_on_startup=False,
                    use_monitor=False)
 def timer_trigger1(timer: func.TimerRequest) -> None:
+    manage_mqtt()
     if timer.past_due:
         manage_mqtt()
     logging.info('Python timer trigger function executed.')
