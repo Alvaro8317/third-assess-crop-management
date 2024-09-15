@@ -1,0 +1,3 @@
+UBIDOTS_TOKEN=BBUS-FFFFFFFFF
+DEVICE_LABEL=crop-cundinamarca-01
+UBIDOTS_URL=industrial.api.ubidots.com
