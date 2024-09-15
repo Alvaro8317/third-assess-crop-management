@@ -26,7 +26,7 @@ def send_data(client):
             "soil_moisture": randint(30, 35)
         }
     )
-    client.publish(f"/v2.0/devices/{ubidot_settings.get("DEVICE_LABEL")}", payload)
+    client.publish(f"/v2.0/devices/{ubidot_settings.get('DEVICE_LABEL')}", payload)
     logging.info("Sent data")
 
 
@@ -55,9 +55,9 @@ def http_trigger1_test(req: func.HttpRequest) -> func.HttpResponse:
     )
 
 
-@app.timer_trigger(schedule="0 */15 * * * *", arg_name="myTimer", run_on_startup=False,
+@app.timer_trigger(schedule="0 */15 * * * *", arg_name="timer", run_on_startup=False,
                    use_monitor=False)
-def timer_trigger1(my_timer: func.TimerRequest) -> None:
-    if my_timer.past_due:
+def timer_trigger1(timer: func.TimerRequest) -> None:
+    if timer.past_due:
         manage_mqtt()
     logging.info('Python timer trigger function executed.')
