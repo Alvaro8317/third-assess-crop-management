@@ -9,3 +9,5 @@ ubidot_settings: dict = {
     "BROKER": os.getenv("UBIDOTS_URL"),
     "DEVICE_LABEL": os.getenv("DEVICE_LABEL"),
 }
+
+resend_api_key: str = os.getenv("RESEND_API_KEY")
