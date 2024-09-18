@@ -8,6 +8,9 @@ resource "aws_instance" "suscriptor" {
   tags = {
     "Name" : "${var.prefix}suscriptor"
   }
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_key_pair" "aws_key_pair_solid" {
