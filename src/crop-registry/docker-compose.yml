@@ -1,8 +1,9 @@
 services:
-  crop-registry:
+  crop-management:
     build:
       context: .
       dockerfile: Dockerfile
+    image: crop-management:latest
     ports:
       - "8000:8000"
     env_file: app/.env
